@@ -68,7 +68,7 @@ export default function Hero() {
           className="block"
         >
           
-          <div className="h-[420px] w-full rounded-xl bg-white/10 backdrop-blur-sm" >
+          <div className="h-[260px] sm:h-[420px] w-full rounded-xl bg-white/10 backdrop-blur-sm" >
           <Image src={"/heroImage.png"} alt="" fill className="rounded-xl opacity-90" />
           </div>
         </motion.div>
