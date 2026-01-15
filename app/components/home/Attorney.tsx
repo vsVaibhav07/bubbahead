@@ -1,9 +1,18 @@
+import Image from "next/image";
+
 export default function Attorney() {
   return (
     <section className="section bg-gray-50">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        {/* Image Placeholder */}
-        <div className="h-96 rounded-xl bg-gray-300" />
+       <div className="relative h-96 rounded-xl overflow-hidden">
+          <Image
+            src="/head2.jpg"
+            alt="William Bubba Head Attorney"
+            fill
+            quality={95}
+            className="object-cover object-[center_20%]"
+          />
+        </div>
 
         <div>
           <h3 className="text-2xl font-serif font-bold mb-2 text-[rgb(var(--navy))]">

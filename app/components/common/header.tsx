@@ -1,6 +1,6 @@
 "use client";
 
-import { Phone, Menu, X } from "lucide-react";
+import { Phone, Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -9,43 +9,44 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[rgb(var(--navy))] text-white border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* LOGO */}
+    <header className="sticky top-0 z-50 bg-white border-b">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/">
-          <Image 
-            src="/logo.png" 
-            height={80} 
-            width={160} 
-            alt="Bubba Head Law Logo" 
-          unoptimized
+          <Image
+            src="/editedLogo.png"
+            alt="logo"
+            priority
+            quality={95}
+            height={80}
+            width={310}
           />
         </Link>
 
-        {/* DESKTOP NAV */}
-        <nav className="hidden md:flex gap-6 font-medium text-white/90">
-          <Link href="/dui-defense" className="hover:text-[rgb(var(--gold))] transition-colors">
+        <nav className="hidden md:flex gap-6 font-medium text-[rgb(var(--charcoal))]">
+          <Link href="/dui-defense" className="hover:text-[rgb(var(--gold))]">
             DUI Defense
           </Link>
-          <Link href="/criminal-defense" className="hover:text-[rgb(var(--gold))] transition-colors">
+          <Link href="/criminal-defense" className="hover:text-[rgb(var(--gold))]">
             Criminal Defense
           </Link>
-          <Link href="/about" className="hover:text-[rgb(var(--gold))] transition-colors">
+          <Link href="/about" className="hover:text-[rgb(var(--gold))]">
             About
           </Link>
-          <Link href="/reviews" className="hover:text-[rgb(var(--gold))] transition-colors">
+          <Link href="/reviews" className="hover:text-[rgb(var(--gold))]">
             Reviews
           </Link>
-          <Link href="/contact" className="hover:text-[rgb(var(--gold))] transition-colors">
+          <Link href="/blog" className="hover:text-[rgb(var(--gold))]">
+            Blog
+          </Link>
+          <Link href="/contact" className="hover:text-[rgb(var(--gold))]">
             Contact
           </Link>
         </nav>
 
-        {/* RIGHT CTA */}
         <div className="flex items-center gap-4">
           <Link
             href="tel:1234567890"
-            className="hidden sm:flex items-center gap-1 text-sm font-medium text-white hover:text-[rgb(var(--gold))] transition-colors"
+            className="hidden sm:flex items-center gap-1 text-sm font-medium text-[rgb(var(--navy))]"
           >
             <Phone size={16} />
             Call Now
@@ -53,49 +54,41 @@ export default function Header() {
 
           <Link
             href="/contact"
-            className="bg-[rgb(var(--gold))] text-black px-4 py-2 rounded-md font-semibold hover:opacity-90 transition-all shadow-md"
+            className="bg-[rgb(var(--gold))] text-black px-4 py-2 rounded-md font-semibold hover:opacity-90 transition"
           >
             Free Consultation
           </Link>
 
-          {/* MOBILE MENU BUTTON */}
           <button
-            className="md:hidden text-white p-1"
+            className="md:hidden"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
-            {open ? <X size={28} /> : <Menu size={28} />}
+            <Menu />
           </button>
         </div>
       </div>
 
-      {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden bg-[rgb(var(--navy))] border-t border-white/10">
-          <nav className="flex flex-col px-6 py-8 gap-6 font-medium text-white">
-            <Link href="/dui-defense" onClick={() => setOpen(false)} className="text-lg">
+        <div className="md:hidden bg-white border-t">
+          <nav className="flex flex-col px-6 py-4 gap-4 font-medium">
+            <Link href="/dui-defense" onClick={() => setOpen(false)}>
               DUI Defense
             </Link>
-            <Link href="/criminal-defense" onClick={() => setOpen(false)} className="text-lg">
+            <Link href="/criminal-defense" onClick={() => setOpen(false)}>
               Criminal Defense
             </Link>
-            <Link href="/about" onClick={() => setOpen(false)} className="text-lg">
+            <Link href="/about" onClick={() => setOpen(false)}>
               About
             </Link>
-            <Link href="/reviews" onClick={() => setOpen(false)} className="text-lg">
+            <Link href="/reviews" onClick={() => setOpen(false)}>
               Reviews
             </Link>
-            <Link href="/contact" onClick={() => setOpen(false)} className="text-lg">
-              Contact
+            <Link href="/blog" onClick={() => setOpen(false)}>
+              Blog
             </Link>
-            <hr className="border-white/10" />
-            <Link 
-              href="tel:1234567890" 
-              className="flex items-center gap-3 text-[rgb(var(--gold))] text-lg"
-              onClick={() => setOpen(false)}
-            >
-              <Phone size={20} />
-              Call Now: (XXX) XXX-XXXX
+            <Link href="/contact" onClick={() => setOpen(false)}>
+              Contact
             </Link>
           </nav>
         </div>

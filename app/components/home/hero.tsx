@@ -2,6 +2,7 @@
 
 import { Check } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -66,8 +67,10 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="hidden md:block"
         >
-          {/* Replace with Next Image later */}
-          <div className="h-[420px] w-full rounded-xl bg-white/10 backdrop-blur-sm" />
+          
+          <div className="h-[420px] w-full rounded-xl bg-white/10 backdrop-blur-sm" >
+          <Image src={"/heroImage.png"} alt="" fill className="rounded-xl opacity-90" />
+          </div>
         </motion.div>
       </div>
     </section>
