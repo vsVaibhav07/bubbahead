@@ -1,11 +1,14 @@
 "use client";
+
 import { useRef, useEffect } from "react";
 import { Star, User, ChevronLeft, ChevronRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const testimonials = [
   {
@@ -23,14 +26,17 @@ const testimonials = [
 ];
 
 export default function TestimonialSlider() {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-  const swiperRef = useRef(null);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
     if (swiperRef.current && prevRef.current && nextRef.current) {
-      swiperRef.current.params.navigation.prevEl = prevRef.current;
-      swiperRef.current.params.navigation.nextEl = nextRef.current;
+      const navigation = swiperRef.current.params.navigation;
+      if (typeof navigation !== "boolean" && navigation) {
+        navigation.prevEl = prevRef.current;
+        navigation.nextEl = nextRef.current;
+      }
       swiperRef.current.navigation.init();
       swiperRef.current.navigation.update();
     }
@@ -49,7 +55,6 @@ export default function TestimonialSlider() {
             loop
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             spaceBetween={24}
-            navigation={{ prevEl: null, nextEl: null }}
             pagination={{
               clickable: true,
               bulletClass:
@@ -63,7 +68,7 @@ export default function TestimonialSlider() {
           >
             {testimonials.map((item, index) => (
               <SwiperSlide key={index}>
-                <div className="min-h-[260px] flex items-center justify-center">
+                <div className="min-h-[260px] flex items-center justify-center py-4">
                   <div className="bg-gray-50 p-8 md:p-12 rounded-2xl border border-gray-100 shadow-sm text-center w-full">
                     <div className="flex justify-center gap-1 mb-6">
                       {[...Array(5)].map((_, i) => (
@@ -98,10 +103,11 @@ export default function TestimonialSlider() {
             ))}
           </Swiper>
 
-          <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 hidden md:flex justify-between pointer-events-none">
+          <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 hidden md:flex justify-between pointer-events-none z-10">
             <button
               ref={prevRef}
               className="pointer-events-auto p-3 rounded-full bg-white border border-gray-100 shadow-lg hover:bg-gray-50 transition-all -translate-x-4 lg:-translate-x-8"
+              aria-label="Previous slide"
             >
               <ChevronLeft size={28} className="text-[rgb(var(--navy))]" />
             </button>
@@ -109,6 +115,7 @@ export default function TestimonialSlider() {
             <button
               ref={nextRef}
               className="pointer-events-auto p-3 rounded-full bg-white border border-gray-100 shadow-lg hover:bg-gray-50 transition-all translate-x-4 lg:translate-x-8"
+              aria-label="Next slide"
             >
               <ChevronRight size={28} className="text-[rgb(var(--navy))]" />
             </button>
