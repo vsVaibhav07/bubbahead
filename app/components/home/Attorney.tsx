@@ -13,7 +13,7 @@ export default function Attorney() {
             Founder & Lead Defense Attorney
           </p>
 
-          <p className="mb-6 text-gray-700">
+          <p className="mb-6 text-justify text-gray-700">
             William “Bubba” Head has spent more than 47 years defending clients
             facing DUI and criminal charges across Georgia. Known for his
             courtroom experience, strategic approach, and straightforward
