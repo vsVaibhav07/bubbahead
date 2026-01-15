@@ -15,11 +15,11 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
         >
           {/* SEO H1 – COLOR EXPLICIT */}
-          <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-white">
+          <h1 className="text-4xl text-center sm:text-left md:text-5xl font-serif font-bold mb-4 text-white">
             Atlanta’s Trusted DUI &amp; Criminal Defense Attorney
           </h1>
 
-          <p className="text-lg text-gray-200 mb-6">
+          <p className="text-lg text-justify text-gray-200 mb-6">
             Protecting Your Rights With Over 47 Years of Courtroom Experience
             Across Georgia.
           </p>
@@ -65,7 +65,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="hidden md:block"
+          className="block"
         >
           
           <div className="h-[420px] w-full rounded-xl bg-white/10 backdrop-blur-sm" >
