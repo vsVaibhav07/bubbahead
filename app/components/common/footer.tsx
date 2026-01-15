@@ -21,7 +21,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className=" py-8 md:py-12">
+        <div className=" sm:mx-4 py-8 md:py-12">
           <h4 className="font-semibold mb-3 text-white">Practice Areas</h4>
           <ul className="space-y-2  text-sm text-gray-300">
             <li>
