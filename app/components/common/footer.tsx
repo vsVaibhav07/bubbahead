@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-[rgb(var(--navy))] text-white">
-      <div className="max-w-7xl text-center md:text-left px4 mx-auto px-6 py-6 grid gap-10 md:grid-cols-4">
+      <div className="max-w-7xl text-center md:text-left px4 mx-auto px-6 py-6 grid lg:gap-10 md:grid-cols-4">
         <div className="flex flex-col justify-center text-center" >
           <Link className=" flex justify-center" href="/">
             <Image
@@ -21,7 +21,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="py-12">
+        <div className=" py-8 md:py-12">
           <h4 className="font-semibold mb-3 text-white">Practice Areas</h4>
           <ul className="space-y-2  text-sm text-gray-300">
             <li>
@@ -47,7 +47,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="py-12">
+        <div className="py-4 md:py-12">
           <h4 className="font-semibold mb-3 text-white">Quick Links</h4>
           <ul className="space-y-2 text-sm text-gray-300">
             <li>
@@ -73,7 +73,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="py-12" >
+        <div className="py-4 md:py-12" >
           <h4 className="font-semibold mb-3 text-white">Contact</h4>
           <div className="space-y-2 text-sm text-gray-300">
             <p>📍 Georgia Offices</p>
@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t py-12 border-white/20 text-center text-xs text-gray-300 px-6">
+      <div className="border-t py-4 md:py-12 border-white/20 text-center text-xs text-gray-300 px-6">
         <p>© {new Date().getFullYear()} Bubba Head Law Firm. All Rights Reserved.</p>
         <p className="mt-1">
           Results may vary. Past performance does not guarantee future outcomes.
